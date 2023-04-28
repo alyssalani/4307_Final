@@ -4,3 +4,6 @@ By: Alyssa Ponce, Max Stetter, Benjamin Jenks
 
 ## Description
 Discover what kind of people like what kind of music!
+
+#Tables
+Person, Income, Event, Song, Platform
