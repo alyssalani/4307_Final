@@ -11,7 +11,7 @@ def populate_table(csv_file, table_name):
         header = next(csvreader)
         for i in csvreader:
             rows.append(i)
-    print(rows)
+    #print(rows)
     for x in rows:
         platform = x[0]
         name = x[1]
