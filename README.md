@@ -6,7 +6,10 @@ By: Alyssa Ponce, Max Stetter, Benjamin Jenks
 Discover what kind of people like what kind of music!
 
 # Tables
-Person, Income, Event, Song, Platform
+* Person
+* Income
+* Song
+* Platform
 
 # Instructions
 
