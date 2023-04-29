@@ -22,15 +22,16 @@ def generate_incomes(iterations):
     return incomes
 
 # Generate a list of incomes
-iterations = input('How many incomes do you want to generate? \n')
-incomes = generate_incomes(int(iterations))
+def make_incomes_csv():
+    iterations = input('How many incomes do you want to generate? \n')
+    incomes = generate_incomes(int(iterations))
 
-with open('incomes.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    field = ["salary", "status"]
+    with open('incomes.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        field = ["salary", "status"]
 
-    writer.writerow(field)
-    for income in incomes:
-        writer.writerow(income)
+        writer.writerow(field)
+        for income in incomes:
+            writer.writerow(income)
 
-file.close()
+    file.close()
