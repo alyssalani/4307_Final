@@ -10,7 +10,7 @@ Person, Income, Event, Song, Platform
 
 # Instructions
 
-##### Quick Start
+### Quick Start
 This quick start will get you going from scratch or if you simply want to have a clean slate.
 
 1. Clean the DB
