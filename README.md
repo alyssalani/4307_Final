@@ -5,10 +5,10 @@ By: Alyssa Ponce, Max Stetter, Benjamin Jenks
 ## Description
 Discover what kind of people like what kind of music!
 
-#Tables
+# Tables
 Person, Income, Event, Song, Platform
 
-#Instructions
+# Instructions
 
 ##### Quick Start
 This quick start will get you going from scratch or if you simply want to have a clean slate.
