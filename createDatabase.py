@@ -49,24 +49,6 @@ CREATE TABLE IF NOT EXISTS Platform(
 )
 """)
 
-cursor.execute("""
-CREATE TRIGGER IF NOT EXISTS someone_followed
-AFTER INSERT ON follow
-BEGIN
-    UPDATE user SET follower_count = follower_count + 1
-    WHERE user.user_id = new.followed_id;
-END
-""")
-
-cursor.execute("""
-CREATE TRIGGER IF NOT EXISTS someone_unfollowed
-AFTER DELETE ON follow
-BEGIN
-    UPDATE user SET follower_count = follower_count - 1
-    WHERE user.user_id = old.followed_id;
-END
-""")
-
 
 connection.commit()
 connection.close()
