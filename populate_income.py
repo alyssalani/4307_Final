@@ -13,7 +13,6 @@ def populate_table(csv_file, table_name):
             rows.append(i)
     #print(rows)
     for x in rows:
-        print('x: ', x)
         yearly_income = x[0]
         status = x[1]
         cursor.execute("INSERT INTO " + table_name + " (income,status) VALUES('{}', '{}')".format(yearly_income, status))
