@@ -34,15 +34,16 @@ def generate_people(iterations):
 
 
 # Generate a list of people.
-iterations = input('How many people do you want to generate? \n')
-population = generate_people(int(iterations))
+def make_people_csv():
+    iterations = input('How many people do you want to generate? \n')
+    population = generate_people(int(iterations))
 
-with open('people.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    field = ["platform_id","name","genre","age","state","weight","height"]
+    with open('people.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        field = ["platform_id","name","genre","age","state","weight","height"]
 
-    writer.writerow(field)
-    for person in population:
-        writer.writerow(person)
+        writer.writerow(field)
+        for person in population:
+            writer.writerow(person)
 
-file.close()
+    file.close()
