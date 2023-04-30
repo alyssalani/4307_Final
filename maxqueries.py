@@ -4,22 +4,38 @@
 import sqlite3
 import sys
 
-connection = sqlite3.connect("Music.db")
-cursor = connection.cursor()
 
-cursor.execute("""
-SELECT first_name, age, weight, genre 
-FROM PERSON
-WHERE first_name == 'max'
-AND genre == 'metal'
-""")
-userList = cursor.fetchall()
+list_of_commands = ["popular_genre", "poop"]
 
-for x in userList:
-    name = str(x[0])
-    age = str(x[1])
-    weight = str(x[2])
-    print(name + " " + age + " " + weight)
+command = ""
+if len(sys.argv) > 1:
+    command = sys.argv[1]
 
-connection.commit()
-connection.close()
+def query(command):
+    connection = sqlite3.connect("Music.db")
+    cursor = connection.cursor()
+
+    if command == list_of_commands[0]:
+        cursor.execute("""
+        SELECT genre, COUNT(genre) AS count
+        FROM PERSON
+        GROUP BY genre
+        ORDER BY count DESC
+        """)
+        userList = cursor.fetchall()
+
+        for x in userList:
+            name = str(x[0])
+            genre = str(x[1])
+            print(name + ": " + genre)
+    elif command == list_of_commands[1]:
+        print('I pooped.')
+    else:
+        print('NOT a valid command! \n \nValid commands are:')
+        for valid_command in list_of_commands:
+            print(valid_command)
+    connection.commit()
+    connection.close()
+
+
+query(command)
