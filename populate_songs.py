@@ -13,10 +13,11 @@ def populate_table(csv_file, table_name):
             rows.append(i)
     #print(rows)
     for x in rows:
+        print('x: ', x)
         song = x[0]
         artist = x[1]
         genre = x[2]
-        cursor.execute("INSERT INTO " + table_name + " (song_name,artistName,genre) VALUES('{}', '{}', '{}')".format(song, artist, genre))
+        cursor.execute("INSERT INTO " + table_name + " (song_name,artistName,genre) VALUES(?, ?, ?)", (song, artist, genre))
         connection.commit()
         
     
