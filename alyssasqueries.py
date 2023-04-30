@@ -7,7 +7,7 @@ cursor = connection.cursor()
 id = sys.argv[1]
 cursor.execute("""
 SELECT song_name, artistName, Song.genre FROM Song, Person 
-WHERE Song.genre = Person.genre AND Person.personID = 2""", id)
+WHERE Song.genre = Person.genre AND Person.personID = ?""", id)
 
 userList = cursor.fetchall()
 
