@@ -14,8 +14,8 @@ for i in rows:
 #second query, people in the same state with  similar taste in music
 rows2 = cursor.execute("""SELECT first_name, last_name, state, genre
         FROM Person
-        GROUP BY state
-        ORDER BY genre""").fetchall()
+        GROUP BY state, genre
+        """).fetchall()
 for j in rows2:
     print(j)
 
