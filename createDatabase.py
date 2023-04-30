@@ -10,7 +10,8 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS Person (
     personID        INTEGER PRIMARY KEY,
     platform     TEXT NOT NULL,
-    name            TEXT NOT NULL,
+    first_name            TEXT NOT NULL,
+    last_name            TEXT NOT NULL,
     genre           TEXT NOT NULL,
     age             INTEGER NOT NULL,
     state           TEXT NOT NULL,

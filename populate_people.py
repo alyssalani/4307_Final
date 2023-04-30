@@ -14,13 +14,14 @@ def populate_table(csv_file, table_name):
     #print(rows)
     for x in rows:
         platform = x[0]
-        name = x[1]
-        genre = x[2]
-        age = x[3]
-        state = x[4]
-        weight = x[5]
-        height = x[6]
-        cursor.execute("INSERT INTO " + table_name + " (platform,name,genre,age,state,weight,height) VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(platform, name, genre, age, state, weight, height))
+        first_name = x[1]
+        last_name = x[2]
+        genre = x[3]
+        age = x[4]
+        state = x[5]
+        weight = x[6]
+        height = x[7]
+        cursor.execute("INSERT INTO " + table_name + " (platform,first_name,last_name,genre,age,state,weight,height) VALUES(?, ?, ?, ?, ? ,?, ?, ?)", (platform, first_name, last_name, genre, age, state, weight, height))
         connection.commit()
         
     

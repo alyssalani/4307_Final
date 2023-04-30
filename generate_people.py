@@ -10,8 +10,8 @@ states=('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'C
 platforms=('Spotify', 'Soundcloud', 'Apple-Music', 'Pandora-Premium', 'Youtube-Music', 'Radio')
 
 # Returns a list containing a person's information.
-def create_person(platform_id, name, genre, age, state, weight, height):
-    return [platform_id, name, genre, age, state, weight, height]
+def create_person(platform_id, first_name, last_name, genre, age, state, weight, height):
+    return [platform_id, first_name, last_name, genre, age, state, weight, height]
 
 # Returns a list of the population.
 def generate_people(iterations):
@@ -19,14 +19,15 @@ def generate_people(iterations):
     i = 0
     while i < iterations:
         platform = random.choice(platforms)
-        name = random.choice(first_names) + " " + random.choice(last_names)
+        first_name = random.choice(first_names)
+        last_name = random.choice(last_names)
         genre = random.choice(genres)
         age = str(random.randrange(3,90))
         state = random.choice(states)
         weight = str(random.randrange(80, 220))
         height = str(random.randrange(55, 80))
 
-        population.append(create_person(platform, name, genre, age, state, weight, height))
+        population.append(create_person(platform, first_name, last_name, genre, age, state, weight, height))
         #print("Created: " + name + ", Age: " + age)
         i += 1
 
@@ -40,7 +41,7 @@ def make_people_csv():
 
     with open('people.csv', 'w', newline='') as file:
         writer = csv.writer(file)
-        field = ["platform_id","name","genre","age","state","weight","height"]
+        field = ["platform_id","first_name", "last_name", "genre","age","state","weight","height"]
 
         writer.writerow(field)
         for person in population:
