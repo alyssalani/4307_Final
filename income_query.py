@@ -8,12 +8,14 @@ cursor = connection.cursor()
 rows = cursor.execute("""SELECT first_name, last_name, genre, state, income FROM Person, Income
 WHERE Person.personID = Income.personID
 ORDER BY income DESC""").fetchall()
-print(rows)
+for i in rows:
+    print(i)
 
 #second query, people in the same state with  similar taste in music
 rows2 = cursor.execute("""SELECT first_name, last_name, state, genre
         FROM Person
         GROUP BY state
         ORDER BY genre""").fetchall()
-print(rows2)
+for j in rows2:
+    print(j)
 
