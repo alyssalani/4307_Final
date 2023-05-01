@@ -34,7 +34,16 @@ match command:
         print(x)
         
   case 'platforms':
-    
+    cursor.execute("""
+    SELECT platform_name Platform, cost Price, AVG(Income) Average_Income
+    FROM Platform, Income, Person
+    WHERE Income.personID=Person.personID AND Person.platform = platform_name
+    GROUP BY platform_name
+    ORDER BY Average_income""")
+    userList = cursor.fetchall()
+    for x in userList:
+      print(x)
+      
   case 'popularGenre':
     cursor.execute("""
         SELECT genre, COUNT(genre) AS count
